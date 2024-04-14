@@ -34,12 +34,12 @@ public class HomeController {
 
     @FXML
     void onClickClientButton(MouseEvent event) {
-        App.newStage("client-view", "App - View Client");
+        App.newStage("client-vieW", "App - View Client");
     }
 
     @FXML
     void onClickPetButton(MouseEvent event) {
-        App.newStage("pet-view", "App - View Pet");
+        App.newStage("registrarse-view", "HOME");
     }
 
     @FXML
