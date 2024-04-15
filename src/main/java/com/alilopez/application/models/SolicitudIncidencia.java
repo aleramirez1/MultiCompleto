@@ -1,17 +1,31 @@
 package com.alilopez.application.models;
 
 public class SolicitudIncidencia {
-    private int id;
+    private String nombre;
     private String tipo;
     private String color;
     private String descripción;
+    private String fecha;
+    private String aula;
+    private String ud;
 
-    public int getId() {
-        return id;
+
+    public SolicitudIncidencia(String nombre, String tipo, String color, String descripción, String fecha, String aula, String ud) {
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.color = color;
+        this.descripción = descripción;
+        this.fecha = fecha;
+        this.aula = aula;
+        this.ud = ud;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getTipo() {
@@ -36,5 +50,29 @@ public class SolicitudIncidencia {
 
     public void setDescripción(String descripción) {
         this.descripción = descripción;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getAula() {
+        return aula;
+    }
+
+    public void setAula(String aula) {
+        this.aula = aula;
+    }
+
+    public String getUd() {
+        return ud;
+    }
+
+    public void setUd(String ud) {
+        this.ud = ud;
     }
 }

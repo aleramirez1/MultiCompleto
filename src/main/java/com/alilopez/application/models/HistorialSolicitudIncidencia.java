@@ -1,18 +1,24 @@
 package com.alilopez.application.models;
+
 import java.util.ArrayList;
+
 public class HistorialSolicitudIncidencia {
-    private ArrayList<SolicitudIncidencia> solicitudes;
-    public void addSolicitud(SolicitudIncidencia solicitud) {
-        solicitudes.add(solicitud);
+    private ArrayList<Incidencia> incidencias;
+
+    public HistorialSolicitudIncidencia() {
+        this.incidencias = new ArrayList<>();
     }
-    public void deleteSolicitud(int id) {
-        for (int i =0; i < solicitudes.size(); i++) {
-            if (id == solicitudes.get(i).getId()) {
-                solicitudes.remove(i);
-            }
-        }
+
+    public void addIncidencia(Incidencia incidencia) {
+        incidencias.add(incidencia);
     }
-    public ArrayList<SolicitudIncidencia> getSolicitudes() {
-        return solicitudes;
+
+    public void deleteIncidencia(int id) {
+        incidencias.removeIf(incidencia -> incidencia.getId() == id);
+    }
+
+    public ArrayList<Incidencia> getIncidencias() {
+        return incidencias;
     }
 }
+

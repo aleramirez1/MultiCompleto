@@ -1,6 +1,7 @@
 package com.alilopez.application;
 
 import com.alilopez.application.models.Usuario;
+import com.alilopez.application.models.HistorialIncidencia;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +17,7 @@ public class App extends Application {
     private static Stage stageView;
     private static Stage stageRoot;
     private static ArrayList<Usuario> usuarios = new ArrayList<>();
+    private static HistorialIncidencia historialIncidencia = new HistorialIncidencia(); // awui nstancie HistorialIncidencia
 
     @Override
     public void start(Stage stage) throws IOException {

@@ -70,7 +70,7 @@ public class MenuController {
 
     @FXML
     void onclickedmostrarlista(MouseEvent event) {
-        App.newStage("verreporte-view","VERREPORTES");
+        App.newStage("lista-view","LISTAS");
 
     }
 
