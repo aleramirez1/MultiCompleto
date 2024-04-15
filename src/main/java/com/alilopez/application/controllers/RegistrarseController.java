@@ -152,7 +152,7 @@ public class RegistrarseController {
     @FXML
     void onGuardarCorreo(ActionEvent event) {
         String input = correoCasilla.getText();
-        if (!input.endsWith("@upchiapas.ids")) {
+        if (!input.endsWith("@ids.upchiapas.edu.mx")) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Correo Inválido");
             alert.setHeaderText(null);

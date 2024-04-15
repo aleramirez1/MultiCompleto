@@ -3,6 +3,8 @@ package com.alilopez.application.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.alilopez.application.App;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -36,21 +38,26 @@ public class AdministraController implements Initializable {
 
     @FXML
     void onMouseClickExitButton(MouseEvent event) {
+        Platform.exit();
 
     }
 
     @FXML
     void onclickedEliminar(MouseEvent event) {
+        App.newStage("eliminar-view","ELIMINAR");
 
     }
 
     @FXML
     void onclickedValidarncidencia(MouseEvent event) {
+        App.newStage("validar-view","VALIDAR INCIDENCIA");
+
 
     }
 
     @FXML
     void onclickedVerreporte(MouseEvent event) {
+        App.newStage("verreporte-view","VER REPORTE");
 
     }
 
@@ -68,8 +75,8 @@ public class AdministraController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
-                        new PieChart.Data("Resueltos", 50),
-                        new PieChart.Data("Sin resolver", 50)
+                        new PieChart.Data("Resueltos", 30),
+                        new PieChart.Data("Sin resolver", 70)
                 );
         graficaBttn.setData(pieChartData);
         graficaBttn.setTitle("Gráfica de incidencias");

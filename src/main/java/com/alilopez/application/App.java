@@ -1,7 +1,5 @@
 package com.alilopez.application;
 
-import com.alilopez.application.models.HistorialIncidencia;
-import com.alilopez.application.models.HistorialSolicitudIncidencia;
 import com.alilopez.application.models.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,13 +15,7 @@ public class App extends Application {
 
     private static Stage stageView;
     private static Stage stageRoot;
-    private static HistorialIncidencia historialIncidencia;
-    private static HistorialSolicitudIncidencia historialSolicitudIncidencia;
-    public static ArrayList<Usuario> usuarios = new ArrayList<>();
-
-    public static void loadView(String s, String Home) {
-        App.loadView("home-view.fxml", "Home");
-    }
+    private static ArrayList<Usuario> usuarios = new ArrayList<>();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -35,16 +27,13 @@ public class App extends Application {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
-
-
-
     }
 
     public static void newStage(String fxml, String title) {
         stageView = new Stage();
-        Scene scene = null;
         try {
-            scene = new Scene(loadFXML(fxml));
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
             scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
             stageView.setTitle(title);
             stageView.setScene(scene);
@@ -67,44 +56,47 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        Usuario admin = new Usuario("", "123", 100, "correo@gmail.com", 0);
-        Usuario alumnoPrueba = new Usuario("", "250", 123456, "proyecto@gmail.com", 2);
-
+        Usuario admin = new Usuario("Admin", "111111", 111111, "admin@upchiapas.ids", 1);
         usuarios.add(admin);
+        Usuario alumnoPrueba = new Usuario("", "250", 123456, "proyecto@gmail.com", 2);
         usuarios.add(alumnoPrueba);
 
         launch(args);
     }
 
     public static void buscarIncidencia() {
-
     }
 
     public static void añadirIncidencia() {
-
+        // Método para añadir incidencias
     }
 
     public static void eliminarIncidencia() {
     }
 
     public static void buscarSolicitud() {
-
     }
 
     public static void añadirSolicitud() {
-
     }
 
     public static void eliminarSolicitud() {
-
     }
 
-    public static void añadirAlumno(String nombre, String contraseña, int matricula, String correo, int cuatrimestre) {
-        Usuario user = new Usuario(nombre, contraseña, matricula, correo, cuatrimestre);
-        usuarios.add(user);
-    }
+    public static void iniciarSesion(String matricula) {
+        boolean isAdmin = false;
 
-    public static void validarAlumno() {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getMatricula() == 111111) {
+                isAdmin = true;
+                break;
+            }
+        }
 
+        if (isAdmin && matricula.equals("111111")) {
+            newStage("Administra-view", "ADMINISTRADORA");
+        } else {
+            System.out.println("La matrícula no pertenece al administrador");
+        }
     }
 }

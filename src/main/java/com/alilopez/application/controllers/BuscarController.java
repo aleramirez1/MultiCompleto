@@ -1,49 +1,56 @@
 package com.alilopez.application.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import com.alilopez.application.App;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class BuscarController {
+    @FXML
+    private TextField txtBuscar;
 
     @FXML
-    private ResourceBundle resources;
+    private ListView<String> listaResultados;
+
+    private ObservableList<String> datos = FXCollections.observableArrayList(
+            "        Nombre:                        Tipo del Objeto:              Color:                          Descripcion del Objeto:                      Aula:             Ud:          Fecha:  ",
+            "Nombre:Celular       Tipo del Objeto:Tecnologia       Color:Negro           Descripcion del Objeto:Es de marca Samsung        Aula:16      Ud:3      Fecha: 19/03/2024 ",
+            "Nombre:Tablet        Tipo del Objeto:Tecnologia       Color:Azul            Descripcion del Objeto:Es de marca Lg             Aula:20      Ud:1       Fecha: 07/03/2024 ",
+            "Nombre:Botella       Tipo del Objeto:Bebida           Color:Amarillo        Descripcion del Objeto:Tiene popote color blanco  Aula:7       Ud:1       Fecha: 02/04/2024 ",
+            "Nombre:Lapiz         Tipo del Objeto:Utiles           Color:Naranja         Descripcion del Objeto:Tiene borrador azul        Aula:9       Ud:3       Fecha: 05/04/2024 ",
+            "Nombre:Reloj         Tipo del Objeto:Tecnologia       Color:Negro           Descripcion del Objeto:Contiene brillos           Aula:12      Ud:1       Fecha: 01/02/2024 ",
+            "Nombre:Gorra         Tipo del Objeto:Personal         Color:Roja            Descripcion del Objeto:Tiene una estrella         Aula:4       Ud:1       Fecha: 23/03/2024 ",
+            "Nombre:Collar        Tipo del Objeto:Personal         Color:Dorado          Descripcion del Objeto:Es de un corazon           Aula:19      Ud:1       Fecha: 09/04/2024 "
+    );
 
     @FXML
-    private URL location;
-
-    @FXML
-    private Button BuscarBttn;
-
-    @FXML
-    private Button atrasBttn;
-
-    @FXML
-    private TextField escribirObjeto;
-
-    @FXML
-    void onclickedAtras(MouseEvent event) {
-        App.newStage("menu-view","MENU");
-
+    public void initialize() {
+        listaResultados.setItems(datos);
     }
 
     @FXML
-    void onclickenBuscar(MouseEvent event) {
-        App.newStage("encontrar-view","ENCONTRAR");
+    public void buscar() {
+        String busqueda = txtBuscar.getText().toLowerCase();
+        ObservableList<String> resultados = FXCollections.observableArrayList();
 
+        for (String elemento : datos) {
+            if (elemento.toLowerCase().contains(busqueda)) {
+                resultados.add(elemento);
+            }
+        }
+
+        listaResultados.setItems(resultados);
     }
 
-    @FXML
-    void initialize() {
-        assert BuscarBttn != null : "fx:id=\"BuscarBttn\" was not injected: check your FXML file 'buscar-view.fxml'.";
-        assert atrasBttn != null : "fx:id=\"atrasBttn\" was not injected: check your FXML file 'buscar-view.fxml'.";
-        assert escribirObjeto != null : "fx:id=\"escribirObjeto\" was not injected: check your FXML file 'buscar-view.fxml'.";
-
+    public void onclickedAtras(MouseEvent mouseEvent) {
     }
 
+    public void buscarCasila(ActionEvent actionEvent) {
+    }
+
+    public void onclickenBuscar(MouseEvent mouseEvent) {
+    }
 }

@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.alilopez.application.App;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -56,21 +57,20 @@ public class MenuController {
 
     @FXML
     void onClickedTabla(MouseEvent event) {
-        App.newStage("encontrar-view","ENCONTRAR");
 
 
     }
 
     @FXML
     void onclickedactualizar(MouseEvent event) {
-        App.newStage("Administra-view","ADMINISTRADORA");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-
+        stage.setY(stage.getY() - 50);
     }
 
     @FXML
     void onclickedmostrarlista(MouseEvent event) {
-        App.newStage("images-view","IMAGENES");
+        App.newStage("verreporte-view","VERREPORTES");
 
     }
 
