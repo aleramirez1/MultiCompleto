@@ -2,11 +2,9 @@ package com.alilopez.application.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 public class BuscarController {
     @FXML
@@ -41,16 +39,6 @@ public class BuscarController {
                 resultados.add(elemento);
             }
         }
-
         listaResultados.setItems(resultados);
-    }
-
-    public void onclickedAtras(MouseEvent mouseEvent) {
-    }
-
-    public void buscarCasila(ActionEvent actionEvent) {
-    }
-
-    public void onclickenBuscar(MouseEvent mouseEvent) {
     }
 }

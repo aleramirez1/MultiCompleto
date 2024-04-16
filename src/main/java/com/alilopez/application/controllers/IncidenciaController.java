@@ -241,12 +241,12 @@ public class IncidenciaController {
     private void imprimirIncidenciasArray() {
         System.out.println("Incidencias:");
         for (Incidencia incidencia : incidenciasArray) {
-            System.out.println("Nombre del objeto: " + incidencia.getNombreObjeto());
+            //System.out.println("Nombre del objeto: " + incidencia.getNombreObjeto());
             System.out.println("Tipo: " + incidencia.getTipo());
             System.out.println("Color: " + incidencia.getColor());
             System.out.println("Descripción: " + incidencia.getDescripcion());
-            System.out.println("Aula: " + incidencia.getAula());
-            System.out.println("Ud: " + incidencia.getUd());
+            //System.out.println("Aula: " + incidencia.getAula());
+            //System.out.println("Ud: " + incidencia.getUd());
             System.out.println("Fecha: " + incidencia.getFecha());
             System.out.println("-----------------------------------------");
         }
